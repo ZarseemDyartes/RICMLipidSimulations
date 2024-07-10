@@ -62,13 +62,6 @@ M1_l3 = [exp(1i*phi1_l3),0;0,exp(-1*1i*phi1_l3)]; %Head
 M2_l3 = [exp(1i*phi2_l3),0;0,exp(-1*1i*phi2_l3)]; %Tail
 M3_l3 = [exp(1i*phi3_l3),0;0,exp(-1*1i*phi3_l3)]; %Adlayer
 
-%Coefficients
-r=zeros(npoint,1);
-t=r;
-R=r;
-T=r;
-C=R;
-
 %Light Pathway: m03 - m3 - m31 - j(m1 - m12 - m2 - m21 - m1) - m13
 for j=1:npoint
 	M_l1 = M03*M3_l1*M31*[(M1_l1*M12*M2_l1*M21*M1_l1)^j]*M13;
