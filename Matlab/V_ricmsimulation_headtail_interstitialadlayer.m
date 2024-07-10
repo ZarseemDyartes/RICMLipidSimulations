@@ -77,13 +77,6 @@ M2_l3 = [exp(1i*phi2_l3),0;0,exp(-1*1i*phi2_l3)]; %Head
 M3_l3 = [exp(1i*phi3_l3),0;0,exp(-1*1i*phi3_l3)]; %Tail
 M4_l3 = [exp(1i*phi4_l3),0;0,exp(-1*1i*phi4_l3)]; %Interstitial adlayer
 
-%Coefficients
-r=zeros(npoint,1);
-t=r;
-R=r;
-T=r;
-C=R;
-
 %Light Pathway: m01 - m1 - m12 - (j-1)[m2 - m23 - m3 - m32 - m2 - m24 - m4
 %- m42] - m2 - m23 - m3 - m32 - m2 - m25
 for j=1:npoint
