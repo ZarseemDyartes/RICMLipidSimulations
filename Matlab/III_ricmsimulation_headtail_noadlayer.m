@@ -54,13 +54,6 @@ phi2_l3 = 2*pi*n2*d2/lambda3; %Tail
 M1_l3 = [exp(1i*phi1_l3),0;0,exp(-1*1i*phi1_l3)]; %Head
 M2_l3 = [exp(1i*phi2_l3),0;0,exp(-1*1i*phi2_l3)]; %Tail
 
-%Coefficients
-r=zeros(npoint,1);
-t=r;
-R=r;
-T=r;
-C=R;
-
 %Light Pathway: m01 - j(m1 - m12 - m2 - m21 - m1) - m13
 for j=1:npoint
 	M_l1 = M01*[(M1_l1*M12*M2_l1*M21*M1_l1)^j]*M13;
