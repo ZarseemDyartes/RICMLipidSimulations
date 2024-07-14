@@ -55,7 +55,7 @@ phi2_l3 = 2 * np.pi * n2 * d2 / lambda3  # Tail
 M1_l3 = np.array([[np.exp(1j * phi1_l3), 0], [0, np.exp(-1 * 1j * phi1_l3)]])  # Head
 M2_l3 = np.array([[np.exp(1j * phi2_l3), 0], [0, np.exp(-1 * 1j * phi2_l3)]])  # Tail
 
-# Light Pathway: m01 - j(m1) - m12
+# Light Pathway: m01 - j(m1 - m12 - m2 - m21 - m1) - m13
 r_l1 = np.zeros(npoint, dtype=complex)
 t_l1 = np.zeros(npoint, dtype=complex)
 r_l2 = np.zeros(npoint, dtype=complex)
