@@ -94,31 +94,31 @@ plt.xlim([min(m) - 0.5, max(m) + 0.5])
 textct = f'n_Sol={n2:.3f}\nn_Lipid={n1:.3f}\nn_Glass={n0:.3f}'
 plt.text(0, 40, textct)
 plt.legend()
-plt.savefig(f'nSol={n2:.2f},nLipid={n1:.2f}, wavelength={lambda1*1e9:.1f}nm, HeadTailNoAdlayer.png')
-np.savetxt(f'nSol={n2:.2f},nLipid={n1:.2f}, wavelength={lambda1*1e9:.1f}nm, HeadTailNoAdlayer.dat', np.column_stack((m, CIRM_l1)), delimiter='\t')
+plt.savefig(f'nSol={n2:.2f},nLipid={n1:.2f}, wavelength={lambda1*1e9:.1f}nm, BulkNoAdlayer.png')
+np.savetxt(f'nSol={n2:.2f},nLipid={n1:.2f}, wavelength={lambda1*1e9:.1f}nm, BulkNoAdlayer.dat', np.column_stack((m, CIRM_l1)), delimiter='\t')
 
 I_glass = 4000
 Mimg = I_glass * np.ones((1024, 1024), dtype=np.uint16)
 Mimg[212:812, 212:812] = I_glass * CIRM_l1[2]
 Mimg[412:612, 412:612] = I_glass * CIRM_l1[3]
-plt.imsave(f'nSol={n2:.2f},nLipid={n1:.2f}, wavelength={lambda1*1e9:.1f}nm, HeadTailNoAdlayer.tif', Mimg, format='tiff')
+plt.imsave(f'nSol={n2:.2f},nLipid={n1:.2f}, wavelength={lambda1*1e9:.1f}nm, BulkNoAdlayer.tif', Mimg, format='tiff')
 
 plt.figure(2)
 plt.plot(m, CIRM_l2, 'g--o')
-plt.savefig(f'nSol={n2:.2f},nLipid={n1:.2f}, wavelength={lambda2*1e9:.1f}nm, HeadTailNoAdlayer.png')
-np.savetxt(f'nSol={n2:.2f},nLipid={n1:.2f}, wavelength={lambda2*1e9:.1f}nm, HeadTailNoAdlayer.dat', np.column_stack((m, CIRM_l2)), delimiter='\t')
+plt.savefig(f'nSol={n2:.2f},nLipid={n1:.2f}, wavelength={lambda2*1e9:.1f}nm, BulkNoAdlayer.png')
+np.savetxt(f'nSol={n2:.2f},nLipid={n1:.2f}, wavelength={lambda2*1e9:.1f}nm, BulkNoAdlayer.dat', np.column_stack((m, CIRM_l2)), delimiter='\t')
 
 Mimg = I_glass * np.ones((1024, 1024), dtype=np.uint16)
 Mimg[212:812, 212:812] = I_glass * CIRM_l2[2]
 Mimg[412:612, 412:612] = I_glass * CIRM_l2[3]
-plt.imsave(f'nSol={n2:.2f},nLipid={n1:.2f}, wavelength={lambda2*1e9:.1f}nm, HeadTailNoAdlayer.tif', Mimg, format='tiff')
+plt.imsave(f'nSol={n2:.2f},nLipid={n1:.2f}, wavelength={lambda2*1e9:.1f}nm, BulkNoAdlayer.tif', Mimg, format='tiff')
 
 plt.figure(2)
 plt.plot(m, CIRM_l3, 'r--o')
-plt.savefig(f'nSol={n2:.2f},nLipid={n1:.2f}, wavelength={lambda3*1e9:.1f}nm, HeadTailNoAdlayer.png')
-np.savetxt(f'nSol={n2:.2f},nLipid={n1:.2f}, wavelength={lambda3*1e9:.1f}nm, HeadTailNoAdlayer.dat', np.column_stack((m, CIRM_l3)), delimiter='\t')
+plt.savefig(f'nSol={n2:.2f},nLipid={n1:.2f}, wavelength={lambda3*1e9:.1f}nm, BulkNoAdlayer.png')
+np.savetxt(f'nSol={n2:.2f},nLipid={n1:.2f}, wavelength={lambda3*1e9:.1f}nm, BulkNoAdlayer.dat', np.column_stack((m, CIRM_l3)), delimiter='\t')
 
 Mimg = I_glass * np.ones((1024, 1024), dtype=np.uint16)
 Mimg[212:812, 212:812] = I_glass * CIRM_l3[2]
 Mimg[412:612, 412:612] = I_glass * CIRM_l3[3]
-plt.imsave(f'nSol={n2:.2f},nLipid={n1:.2f}, wavelength={lambda3*1e9:.1f}nm, HeadTailNoAdlayer.tif', Mimg, format='tiff')
+plt.imsave(f'nSol={n2:.2f},nLipid={n1:.2f}, wavelength={lambda3*1e9:.1f}nm, BulkNoAdlayer.tif', Mimg, format='tiff')
