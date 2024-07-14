@@ -89,7 +89,7 @@ textct=sprintf('n_S_o_l=%4.3f\n n_L_i_p_i_d%4.3f\n n_G_l_a_s_s=%4.3f\n',n2,n1,n0
 text(7,0.9,textct);
 
 set(gcf,'PaperUnits','inches','PaperPosition',[0 0 4 3])
-opfnhead=sprintf('nSol=%4.2f,nLipid=%4.2f, wavelength=%4.1fnm, HeadTailNoAdlayer',n2,n1,lambda1*1e9);
+opfnhead=sprintf('nSol=%4.2f,nLipid=%4.2f, wavelength=%4.1fnm, BulkNoAdlayer',n2,n1,lambda1*1e9);
 print([opfnhead,'.png'],'-dpng');
 dlmwrite([opfnhead,'.dat'],[m,CIRM_l1],'\t');
 I_glass=4000;
@@ -98,7 +98,7 @@ Mimg(212:812,212:812)=I_glass*CIRM_l1(2);
 Mimg(412:612,412:612)=I_glass*CIRM_l1(3);
 imwrite(uint16(Mimg),[opfnhead,'.tif']);
 
-opfnhead=sprintf('nSol=%4.2f,nLipid=%4.2f, wavelength=%4.1fnm, HeadTailNoAdlayer',n2,n1,lambda2*1e9);
+opfnhead=sprintf('nSol=%4.2f,nLipid=%4.2f, wavelength=%4.1fnm, BulkNoAdlayer',n2,n1,lambda2*1e9);
 print([opfnhead,'.png'],'-dpng');
 dlmwrite([opfnhead,'.dat'],[m,CIRM_l2],'\t');
 I_glass=4000;
@@ -107,7 +107,7 @@ Mimg(212:812,212:812)=I_glass*CIRM_l2(2);
 Mimg(412:612,412:612)=I_glass*CIRM_l2(3);
 imwrite(uint16(Mimg),[opfnhead,'.tif']);
 
-opfnhead=sprintf('nSol=%4.2f,nLipid=%4.2f, wavelength=%4.1fnm, HeadTailNoAdlayer',n2,n1,lambda3*1e9);
+opfnhead=sprintf('nSol=%4.2f,nLipid=%4.2f, wavelength=%4.1fnm, BulkNoAdlayer',n2,n1,lambda3*1e9);
 print([opfnhead,'.png'],'-dpng');
 dlmwrite([opfnhead,'.dat'],[m,CIRM_l3],'\t');
 I_glass=4000;
