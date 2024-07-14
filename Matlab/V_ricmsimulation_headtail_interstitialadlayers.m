@@ -127,7 +127,7 @@ textct=sprintf('n_S_o_l=%4.3f\n n_I_A_d=%4.3f\n n_T_a_i_l%4.3f\n n_H_e_a_d=%4.3f
 text(7,0.9,textct);
 
 set(gcf,'PaperUnits','inches','PaperPosition',[0 0 4 3])
-opfnhead=sprintf('nSol=%4.2f,nIAd=%4.2f, nTail =%4.2f,nHead=%4.2f, nBAd = %4.2f, wavelength=%4.1fnm, HeadTailBaseAdlayer',n5,n4,n3,n2,n1,lambda1*1e9);
+opfnhead=sprintf('nSol=%4.2f,nIAd=%4.2f, nTail =%4.2f,nHead=%4.2f, nBAd = %4.2f, wavelength=%4.1fnm, HeadTailInterstitialAdlayers',n5,n4,n3,n2,n1,lambda1*1e9);
 print([opfnhead,'.png'],'-dpng');
 dlmwrite([opfnhead,'.dat'],[m,CIRM_l1],'\t');
 I_glass=4000;
@@ -136,7 +136,7 @@ Mimg(212:812,212:812)=I_glass*CIRM_l1(2);
 Mimg(412:612,412:612)=I_glass*CIRM_l1(3);
 imwrite(uint16(Mimg),[opfnhead,'.tif']);
 
-opfnhead=sprintf('nSol=%4.2f,nIAd=%4.2f, nTail =%4.2f,nHead=%4.2f, nBAd = %4.2f, wavelength=%4.1fnm, HeadTailBaseAdlayer',n5,n4,n3,n2,n1,lambda2*1e9);
+opfnhead=sprintf('nSol=%4.2f,nIAd=%4.2f, nTail =%4.2f,nHead=%4.2f, nBAd = %4.2f, wavelength=%4.1fnm, HeadTailInterstitialAdlayers',n5,n4,n3,n2,n1,lambda2*1e9);
 print([opfnhead,'.png'],'-dpng');
 dlmwrite([opfnhead,'.dat'],[m,CIRM_l2],'\t');
 I_glass=4000;
@@ -145,7 +145,7 @@ Mimg(212:812,212:812)=I_glass*CIRM_l2(2);
 Mimg(412:612,412:612)=I_glass*CIRM_l2(3);
 imwrite(uint16(Mimg),[opfnhead,'.tif']);
 
-opfnhead=sprintf('nSol=%4.2f,nIAd=%4.2f, nTail =%4.2f,nHead=%4.2f, nBAd = %4.2f, wavelength=%4.1fnm, HeadTailBaseAdlayer',n5,n4,n3,n2,n1,lambda3*1e9);
+opfnhead=sprintf('nSol=%4.2f,nIAd=%4.2f, nTail =%4.2f,nHead=%4.2f, nBAd = %4.2f, wavelength=%4.1fnm, HeadTailInterstitialAdlayers',n5,n4,n3,n2,n1,lambda3*1e9);
 print([opfnhead,'.png'],'-dpng');
 dlmwrite([opfnhead,'.dat'],[m,CIRM_l3],'\t');
 I_glass=4000;
