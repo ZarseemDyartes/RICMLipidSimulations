@@ -58,10 +58,10 @@ for k=1:npoint
         R_l1(k)=norm(r_l1(k))^2;
         T_l1(k)=norm(t_l1(k))^2*n2/n0;
 		
-		R_l2(k)=norm(r_l2(k))^2;
+	R_l2(k)=norm(r_l2(k))^2;
         T_l2(k)=norm(t_l2(k))^2*n2/n0;
 		
-		R_l3(k)=norm(r_l3(k))^2;
+	R_l3(k)=norm(r_l3(k))^2;
         T_l3(k)=norm(t_l3(k))^2*n2/n0;
 end
 
