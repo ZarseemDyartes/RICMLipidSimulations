@@ -14,7 +14,7 @@ n3 = 1.33; %PBS top solution and water adlayer refractive index
 
 %Distances and Wavelength
 m = 0:30;
-npoint=max(size(m));
+npoint=numel(m);
 d1 = 0.5e-9; %Phosphocholine head thickness
 d2 = 4e-9; %Tail thickness
 d3 = 1e-9; %Adlayer thickness
@@ -63,27 +63,27 @@ M2_l3 = [exp(1i*phi2_l3),0;0,exp(-1*1i*phi2_l3)]; %Tail
 M3_l3 = [exp(1i*phi3_l3),0;0,exp(-1*1i*phi3_l3)]; %Adlayer
 
 %Light Pathway: m03 - m3 - m31 - j(m1 - m12 - m2 - m21 - m1) - m13
-for j=1:npoint
+for j=0:(npoint-1)
 	M_l1 = M03*M3_l1*M31*[(M1_l1*M12*M2_l1*M21*M1_l1)^j]*M13;
-	r_l1(j)=M_l1(2,1)/M_l1(1,1);
-    t_l1(j)=1/M_l1(1,1);
+	r_l1(j+1)=M_l1(2,1)/M_l1(1,1);
+    	t_l1(j+1)=1/M_l1(1,1);
 	
 	M_l2 = M03*M3_l2*M31*[(M1_l2*M12*M2_l2*M21*M1_l2)^j]*M13;
-	r_l2(j)=M_l2(2,1)/M_l2(1,1);
-    t_l2(j)=1/M_l2(1,1);
+	r_l2(j+1)=M_l2(2,1)/M_l2(1,1);
+   	t_l2(j+1)=1/M_l2(1,1);
 	
 	M_l3 = M03*M3_l3*M31*[(M1_l3*M12*M2_l3*M21*M1_l3)^j]*M13;
-	r_l3(j)=M_l3(2,1)/M_l3(1,1);
-    t_l3(j)=1/M_l3(1,1);
+	r_l3(j+1)=M_l3(2,1)/M_l3(1,1);
+    	t_l3(j+1)=1/M_l3(1,1);
 end
 for k=1:npoint
         R_l1(k)=norm(r_l1(k))^2;
         T_l1(k)=norm(t_l1(k))^2*n3/n0;
 		
-		R_l2(k)=norm(r_l2(k))^2;
+	R_l2(k)=norm(r_l2(k))^2;
         T_l2(k)=norm(t_l2(k))^2*n3/n0;
 		
-		R_l3(k)=norm(r_l3(k))^2;
+	R_l3(k)=norm(r_l3(k))^2;
         T_l3(k)=norm(t_l3(k))^2*n3/n0;
 end
 
