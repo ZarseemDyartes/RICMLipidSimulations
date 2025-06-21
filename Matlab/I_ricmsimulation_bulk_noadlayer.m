@@ -13,7 +13,7 @@ n2 = 1.335; %PBS top solution refractive index
 
 %Distances and Wavelength
 m = 0:30;
-npoint=max(size(m));
+npoint=numel(m);
 d1 = 5e-9; %Lipid bilayer thickness
 
 %Fresnel Reflectance Coefficients
@@ -41,18 +41,18 @@ phi1_l3 = 2*pi*n1*d1/lambda3; %Bilayer
 M1_l3 = [exp(1i*phi1_l3),0;0,exp(-1*1i*phi1_l3)]; %Bilayer
 
 %Light Pathway: m01 - j(m1) - m12
-for j=1:npoint
-	M_l1 = M01*[(M1_l1)^j]*M12;
-	r_l1(j)=M_l1(2,1)/M_l1(1,1);
-    t_l1(j)=1/M_l1(1,1);
-	
-	M_l2 = M01*[(M1_l2)^j]*M12;
-	r_l2(j)=M_l2(2,1)/M_l2(1,1);
-    t_l2(j)=1/M_l2(1,1);
-	
-	M_l3 = M01*[(M1_l3)^j]*M12;
-	r_l3(j)=M_l3(2,1)/M_l3(1,1);
-    t_l3(j)=1/M_l3(1,1);
+for j = 0:(npoint-1)
+    M_l1 = M01 * (M1_l1^j) * M12;
+    r_l1(j+1) = M_l1(2,1) / M_l1(1,1);
+    t_l1(j+1) = 1 / M_l1(1,1);
+    
+    M_l2 = M01 * (M1_l2^j) * M12;
+    r_l2(j+1) = M_l2(2,1) / M_l2(1,1);
+    t_l2(j+1) = 1 / M_l2(1,1);
+    
+    M_l3 = M01 * (M1_l3^j) * M12;
+    r_l3(j+1) = M_l3(2,1) / M_l3(1,1);
+    t_l3(j+1) = 1 / M_l3(1,1);
 end
 for k=1:npoint
         R_l1(k)=norm(r_l1(k))^2;
