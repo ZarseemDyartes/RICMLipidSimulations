@@ -7,7 +7,7 @@ lambda2 = 532e-9;
 lambda3 = 610e-9;
 
 %Refractive Indices
-n0 = 1.52; %Substrate refractive index
+n0 = 1.520; %Substrate refractive index
 n1 = 1.445; %Lipid bilayer refractive index - DOPC
 n2 = 1.335; %PBS top solution refractive index
 
