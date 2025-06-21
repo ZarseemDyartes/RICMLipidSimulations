@@ -8,8 +8,8 @@ lambda3 = 610e-9;
 
 %Refractive Indices
 n0 = 1.52; %Substrate refractive index
-n1 = 1.48; %Lipid bilayer refractive index - DOPC
-n2 = 1.33; %PBS top solution refractive index
+n1 = 1.445; %Lipid bilayer refractive index - DOPC
+n2 = 1.335; %PBS top solution refractive index
 
 %Distances and Wavelength
 m = 0:30;
