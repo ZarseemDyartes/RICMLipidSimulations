@@ -7,20 +7,20 @@ lambda2 = 532e-9;
 lambda3 = 610e-9;
 
 %Refractive Indices
-n0 = 1.52; %Substrate refractive index
-n1 = 1.33; %Base adlayer refractive index
-n2 = 1.49; %Phosphocholine lipid head group refractive index
-n3 = 1.44; %Lipid tail group refractive index (octadecane used in model)
-n4 = 1.33; %Interstitial adlayer refractive index
-n5 = 1.33; %PBS top solution and water adlayer refractive index
+n0 = 1.520; %Substrate refractive index
+n1 = 1.335; %Base adlayer refractive index
+n2 = 1.490; %Phosphocholine lipid head group refractive index
+n3 = 1.440; %Lipid tail group refractive index (octadecane used in model)
+n4 = 1.335; %Interstitial adlayer refractive index
+n5 = 1.335; %PBS top solution and water adlayer refractive index
 
 %Distances and Wavelength
 m = 0:30;
-npoint=max(size(m));
+npoint=numel(m);
 d1 = 1e-9; %Base adlayer thickness
 d2 = 0.5e-9; %Phosphocholine head thickness
 d3 = 4e-9; %Tail thickness
-d4 = 0.75e-9; %Interstitial adlayer thickness
+d4 = 0.5e-9; %Interstitial adlayer thickness
 
 %Fresnel Reflectance Coefficients
 r01 = (n0-n1)/(n0+n1); %Substrate to base adlayer
@@ -79,18 +79,18 @@ M4_l3 = [exp(1i*phi4_l3),0;0,exp(-1*1i*phi4_l3)]; %Interstitial adlayer
 
 %Light Pathway: m01 - m1 - m12 - (j-1)[m2 - m23 - m3 - m32 - m2 - m24 - m4
 %- m42] - m2 - m23 - m3 - m32 - m2 - m25
-for j=1:npoint
+for j=0:(npoint-1)
 	M_l1 = M01*M1_l1*M12*[(M2_l1*M23*M3_l1*M32*M2_l1*M24*M4_l1*M42)^(j-1)]*M2_l1*M23*M3_l1*M32*M2_l1*M25
-	r_l1(j)=M_l1(2,1)/M_l1(1,1);
-    t_l1(j)=1/M_l1(1,1);
+	r_l1(j+1)=M_l1(2,1)/M_l1(1,1);
+    	t_l1(j+1)=1/M_l1(1,1);
 	
 	M_l2 = M01*M1_l2*M12*[(M2_l2*M23*M3_l2*M32*M2_l2*M24*M4_l2*M42)^(j-1)]*M2_l2*M23*M3_l2*M32*M2_l2*M25
-	r_l2(j)=M_l2(2,1)/M_l2(1,1);
-    t_l2(j)=1/M_l2(1,1);
+	r_l2(j+1)=M_l2(2,1)/M_l2(1,1);
+    	t_l2(j+1)=1/M_l2(1,1);
 	
-    M_l3 = M01*M1_l3*M12*[(M2_l3*M23*M3_l3*M32*M2_l3*M24*M4_l3*M42)^(j-1)]*M2_l3*M23*M3_l3*M32*M2_l3*M25
-	r_l3(j)=M_l3(2,1)/M_l3(1,1);
-    t_l3(j)=1/M_l3(1,1);
+    	M_l3 = M01*M1_l3*M12*[(M2_l3*M23*M3_l3*M32*M2_l3*M24*M4_l3*M42)^(j-1)]*M2_l3*M23*M3_l3*M32*M2_l3*M25
+	r_l3(j+1)=M_l3(2,1)/M_l3(1,1);
+    	t_l3(j+1)=1/M_l3(1,1);
 end
 for k=1:npoint
         R_l1(k)=norm(r_l1(k))^2;
