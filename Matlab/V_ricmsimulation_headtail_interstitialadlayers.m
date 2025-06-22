@@ -80,15 +80,15 @@ M4_l3 = [exp(1i*phi4_l3),0;0,exp(-1*1i*phi4_l3)]; %Interstitial adlayer
 %Light Pathway: m01 - m1 - m12 - (j-1)[m2 - m23 - m3 - m32 - m2 - m24 - m4
 %- m42] - m2 - m23 - m3 - m32 - m2 - m25
 for j=0:(npoint-1)
-	M_l1 = M01*M1_l1*M12*[(M2_l1*M23*M3_l1*M32*M2_l1*M24*M4_l1*M42)^(j-1)]*M2_l1*M23*M3_l1*M32*M2_l1*M25
+	M_l1 = M01*M1_l1*M12*[(M2_l1*M23*M3_l1*M32*M2_l1*M24*M4_l1*M42)^(j)]*M2_l1*M23*M3_l1*M32*M2_l1*M25
 	r_l1(j+1)=M_l1(2,1)/M_l1(1,1);
     	t_l1(j+1)=1/M_l1(1,1);
 	
-	M_l2 = M01*M1_l2*M12*[(M2_l2*M23*M3_l2*M32*M2_l2*M24*M4_l2*M42)^(j-1)]*M2_l2*M23*M3_l2*M32*M2_l2*M25
+	M_l2 = M01*M1_l2*M12*[(M2_l2*M23*M3_l2*M32*M2_l2*M24*M4_l2*M42)^(j)]*M2_l2*M23*M3_l2*M32*M2_l2*M25
 	r_l2(j+1)=M_l2(2,1)/M_l2(1,1);
     	t_l2(j+1)=1/M_l2(1,1);
 	
-    	M_l3 = M01*M1_l3*M12*[(M2_l3*M23*M3_l3*M32*M2_l3*M24*M4_l3*M42)^(j-1)]*M2_l3*M23*M3_l3*M32*M2_l3*M25
+    	M_l3 = M01*M1_l3*M12*[(M2_l3*M23*M3_l3*M32*M2_l3*M24*M4_l3*M42)^(j)]*M2_l3*M23*M3_l3*M32*M2_l3*M25
 	r_l3(j+1)=M_l3(2,1)/M_l3(1,1);
     	t_l3(j+1)=1/M_l3(1,1);
 end
